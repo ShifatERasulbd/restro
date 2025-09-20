@@ -307,16 +307,39 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
-      <div class="col-md-3 mb-3">
+     <div class="col-md-3 mb-3">
+        <div class="card h-100 position-relative" style="background-color:#F2E6E8">
+            <img src="https://i.postimg.cc/8PkwdTYd/image.png" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+            </div>
+
+            <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
+        </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
         <div class="card h-100" style="background-color:#F2E6E8">
           <img src="https://i.postimg.cc/8PkwdTYd/image.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
@@ -327,6 +350,10 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
@@ -337,6 +364,10 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
@@ -347,6 +378,10 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
@@ -357,6 +392,10 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
 
@@ -367,16 +406,10 @@
             <h5 class="card-title">Subscribe to our newsletter</h5>
             <p class="card-text">Get the latest updates on new products and upcoming sales</p>
           </div>
-        </div>
-      </div>
-
-        <div class="col-md-3 mb-3">
-        <div class="card h-100" style="background-color:#F2E6E8">
-          <img src="https://i.postimg.cc/8PkwdTYd/image.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Subscribe to our newsletter</h5>
-            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
-          </div>
+          <!-- Add to Cart Button -->
+            <button class="add-to-cart-btn">
+            <i class="fa-solid fa-cart-plus"></i> Add
+            </button>
         </div>
       </div>
     </div>

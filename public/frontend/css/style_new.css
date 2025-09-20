@@ -469,3 +469,33 @@ li a {
   background-color: #ff5722;  /* circle hover color */
   transform: scale(1.1);      /* slight zoom effect */
 }
+
+.add-to-cart-btn {
+  position: absolute;        /* position inside the card */
+  bottom: 9px;              /* distance from bottom */
+  right: 15px;               /* distance from right */
+  border: 1px solid red;     /* red border */
+  background-color: #fff;    /* white background */
+  color: red;                /* text color */
+  padding: 6px 12px;
+  border-radius: 7px;
+  font-weight: 200;
+  display: flex;             /* align icon + text */
+  align-items: center;
+  gap: 5px;                  /* space between icon & text */
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-to-cart-btn i {
+  color: red;                /* icon color */
+}
+
+.add-to-cart-btn:hover {
+  background-color: red;     /* button background on hover */
+  color: #fff;               /* text/icon color on hover */
+}
+
+.add-to-cart-btn:hover i {
+  color: #fff;               /* icon turns white on hover */
+}
