@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fixed Responsive Slider</title>
-  <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('frontend/css/style_new.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Include Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 </head>
 <body>
 
@@ -293,7 +296,7 @@
   </div>
 <!-- offers -->
 <section>
-  <div class="container">
+  <div class="container-width">
     <div class="row">
       <div class="col-md-6 mb-3">
         <div class="card h-100" style="background-color:#C2F0C2">
@@ -317,10 +320,14 @@
     </div>
   </div>
 </section>
-<section>
-  <div class="container">
+<section class="container-width">
+  <div class="featured-header">
+          <h1 class="title-shop">Popular Items</h1>
+          <button class="view-all-btn">View All</button>
+    </div>
+  <div >
     <div class="row">
-      <div class="col-md-6 mb-3">
+      <div class="col-md-3 mb-3">
         <div class="card h-100" style="background-color:#C2F0C2">
           <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -330,7 +337,67 @@
         </div>
       </div>
 
-      <div class="col-md-6 mb-3">
+      <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
+        <div class="card h-100" style="background-color:#F2E6E8">
+          <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Subscribe to our newsletter</h5>
+            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+          </div>
+        </div>
+      </div>
+
+        <div class="col-md-3 mb-3">
         <div class="card h-100" style="background-color:#F2E6E8">
           <img src="{{ asset('frontend/images/subscribe.png') }}" class="card-img-top" alt="...">
           <div class="card-body">
@@ -346,6 +413,68 @@
 
 
 <footer>
+  <section style="background-color:#C2F0C2;margin-top:15px">
+    <div class="container-width">
+      <div class="row">
+        <div class="col-md-4 mb-3" >
+            <div class="footer-logo" style="margin-top: 25px;">
+                <img src="{{ asset('frontend/images/logo.png') }}" alt="Logo">
+                <h5>Subscribe to get Our Offers</h5>
+                <input type="email" name="email" id="email" style="height:45px;    border-radius: 10px" placeholder="Enter your email">
+                <button class="view-all-btn">Subscribe</button>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-3" >
+            <div class="footer-logo" style="margin-top: 25px;">
+                
+                <h5>Quick Links</h5>
+                <ul class="no-marker">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+
+            </div>
+        </div>
+
+         <div class="col-md-4 mb-3" >
+            <div class="footer-logo" style="margin-top: 25px;">
+                
+                <h5>Find Us On</h5>
+                <ul class="footer-list no-marker">
+                  <li>
+                    <a href="mailto:example@email.com">
+                      <i class="fa-solid fa-envelope"></i> example@email.com
+                    </a>
+                  </li>
+                  <li>
+                    <a href="tel:+123456789">
+                      <i class="fa-solid fa-phone"></i> +123 456 789
+                    </a>
+                  </li>
+                </ul>
+                    <div class="footer-social">
+    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </div>
+            </div>
+        </div>
+
+    </div>
+</section>
   <p>&copy; 2025 My Website</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
