@@ -7,39 +7,7 @@
   <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
-  <style>
-    /* Product Card Styles */
-    .product-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      text-align: center;
-      padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      height: 100%;
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-    }
-
-    .product-card img {
-      width: 70%; /* smaller image size */
-      height: auto;
-      margin: 0 auto 10px;
-      display: block;
-      object-fit: contain;
-    }
-
-    .product-card .card-body h5 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #333;
-      margin: 0;
-    }
-  </style>
+ 
 </head>
 <body>
 
@@ -171,8 +139,12 @@
 
 
 <!-- featured Items -->
+ <div class="container-width">
 <section>
-    <h1 class="title-shop">Fetured Items</h1>
+     <div class="featured-header">
+          <h1 class="title-shop">Featured Items</h1>
+          <button class="view-all-btn">View All</button>
+    </div>
 <div class="main bd-grid">
             <article class="card">
                 <div class="card__img">
@@ -318,7 +290,7 @@
             </article>
   </div>
 </section>
-
+  </div>
 <footer>
   <p>&copy; 2025 My Website</p>
 </footer>
