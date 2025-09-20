@@ -12,7 +12,7 @@ use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\SaucesController;
 Route::get('/', function () {
-    return view('frontend/master');
+    return view('frontend/home');
 });
 
 // Route::get('/',[HomeController::class,'home'])->name('home');
