@@ -28,7 +28,14 @@
 </header>
 
 @yield('content')
-
+<!-- Drawer -->
+<div class="drawer" id="drawer">
+  <button class="close-btn" id="closeDrawer">&times;</button>
+  <h2>Shopping Cart</h2>
+  <p>Your items will appear here...</p>
+</div>
+<!-- Overlay -->
+<div class="overlay" id="overlay"></div>
 
 <footer>
   <section style="background-color:#C2F0C2;margin-top:15px">
@@ -100,5 +107,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+<script src="{{ asset('frontend/js/cart.js') }}"></script>
 </body>
 </html>

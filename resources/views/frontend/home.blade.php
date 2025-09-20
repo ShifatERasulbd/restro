@@ -111,18 +111,20 @@
 
   <div>
     <div class="row">
+      @foreach($popularFood as $food)
       <div class="col-md-3 mb-3">
         <div class="card h-100" style="background-color:#C2F0C2">
-          <img src="https://i.postimg.cc/8PkwdTYd/image.png" class="card-img-top" alt="">
+          <img src="{{asset($food->image)}}" class="card-img-top" alt="">
           <div class="card-body">
-            <h5 class="card-title">Subscribe to our newsletter</h5>
-            <p class="card-text">Get the latest updates on new products and upcoming sales</p>
+            <h5 class="card-title">{{$food->name}}</h5>
+            <p class="card-text">{{$food->ingredients}}</p>
           </div>
           <button class="add-to-cart-btn">
             <i class="fa-solid fa-cart-plus"></i> Add
           </button>
         </div>
       </div>
+      @endforeach
 
       {{-- Repeat your popular items --}}
       {{-- ... --}}

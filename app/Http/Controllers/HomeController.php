@@ -13,6 +13,7 @@ class HomeController extends Controller
          $slider=Sliders::OrderBy('id','DESC')->get();
          $foodCategory=FoodCategory::OrderBy('id','DESC')->get();
          $FeaturedFood=Food::where('featuredItems','on')->OrderBy('id','DESC')->get();
-        return view('frontend.home',compact('slider','foodCategory','FeaturedFood'));
+         $popularFood=Food::OrderBy('id','DESC')->get();
+        return view('frontend.home',compact('slider','foodCategory','FeaturedFood','popularFood'));
     }
 }
