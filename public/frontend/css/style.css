@@ -127,8 +127,6 @@ nav.nav-collapse a:hover { background: #f2f2f2; }
 /* Slider */
 .container {
   position: relative;
-  
-  width: 100%;
   height: 500px;
   margin: 0 auto;
   overflow-x: hidden;
