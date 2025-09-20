@@ -4,40 +4,21 @@
 <section>
   <div class="container">
     <div class="slide">
-      <div class="item" style="background-image: url('https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1074&auto=format&fit=crop');">
+        @foreach($slider as $slider)
+      <div class="item" style="background-image: url('{{asset($slider->image)}}');">
         <div class="content">
-          <div class="name">Scotland</div>
-          <div class="des">Experience the mystical Highlands under twilight skies and misty lochs.</div>
+          <div class="name">{{ $slider -> title }}</div>
+          <div class="des">{{ $slider->subTitle }}</div>
           <button>See More</button>
         </div>
       </div>
-      <div class="item" style="background-image: url('https://images.unsplash.com/photo-1439792675105-701e6a4ab6f0?q=80&w=1173&auto=format&fit=crop');">
-        <div class="content">
-          <div class="name">Norway</div>
-          <div class="des">Chase the Northern Lights under star-lit skies along scenic fjord roads.</div>
-          <button>See More</button>
-        </div>
-      </div>
-      <div class="item" style="background-image: url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6?q=80&w=1170&auto=format&fit=crop');">
-        <div class="content">
-          <div class="name">New Zealand</div>
-          <div class="des">Wander dramatic, mist-laden mountain paths that feel straight out of a dream.</div>
-          <button>See More</button>
-        </div>
-      </div>
-      <div class="item" style="background-image: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?q=80&w=2070&auto=format&fit=crop');">
-        <div class="content">
-          <div class="name">Japan</div>
-          <div class="des">Discover serene mountain temples shrouded in dusk and ancient forest trails.</div>
-          <button>See More</button>
-        </div>
-      </div>
+      @endforeach
     </div>
 
-    <div class="button">
+    <!-- <div class="button">
       <button class="prev">◁</button>
       <button class="next">▷</button>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -45,15 +26,16 @@
 <section>
   <div class="product-container" style="margin-top:0;">
     <div class="owl-carousel owl-theme" id="product-slider">
-
+  @foreach($foodCategory as $foodCategory)
       <div class="item">
         <div class="card product-card">
-          <img src="{{ asset('frontend/images/appetizers-thumb.png') }}" style="width: 56px;" alt="Product 1">
+          <img src="{{ asset($foodCategory->image) }}" style="width: 56px;" alt="Product 1">
           <div class="card-body">
-            <h5>Appetizers</h5>
+            <h5>{{$foodCategory->name}}</h5>
           </div>
         </div>
       </div>
+    @endforeach
 
       <div class="item">
         <div class="card product-card">

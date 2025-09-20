@@ -17,6 +17,7 @@
                                 
                                 <th>SL</th>
                                 <th>Name</th>
+                                <th>Image</th>
                               <th>Action</th>
                             </tr>
                             </thead>
@@ -25,6 +26,7 @@
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $foodCategory ->name}}</td>
+                                <td><img src="{{ asset($foodCategory->image) }}" width="60" height="60"></td>
                                 <td>
                                     <a href="{{ route('foodCategory.edit',$foodCategory->id) }}" class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i></a>
                                     <form action="{{ route('foodCategory.delete', $foodCategory->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this Food Category?');">

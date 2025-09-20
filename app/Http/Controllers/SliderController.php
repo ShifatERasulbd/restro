@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Sliders;
 use Illuminate\Http\Request;
 
-class SliderController extends Controller
+class SliderController extends  Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,7 +30,7 @@ class SliderController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) 
     {
         //
         

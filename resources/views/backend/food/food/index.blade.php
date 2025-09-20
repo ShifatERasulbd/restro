@@ -31,10 +31,17 @@
                                     <td><img src="{{ asset($food->image) }}" alt="" width="60px"></td>
                                     <td>{{ $food->price }}</td>
                                     <td></td>
+                                   
                                     <td>
-                                        <a href="{{ route('food.edit',$food->id) }}" class="btn btn-info">Edit</a>
-                                        <a href="{{ route('food.delete',$food->id) }}" class="btn btn-danger">Delete</a>
-                                    </td>
+                                    <a href="{{ route('food.edit',$food->id) }}" class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i></a>
+                                    <form action="{{ route('food.delete',$food->id) }}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this Food Category?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                </td>
                                 </tr>
                                 @endforeach
                            

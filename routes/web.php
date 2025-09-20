@@ -11,11 +11,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\SaucesController;
-Route::get('/', function () {
-    return view('frontend/home');
-});
+// Route::get('/', function () {
+//     return view('frontend/home');
+// });
 
-// Route::get('/',[HomeController::class,'home'])->name('home');
+Route::get('/',[HomeController::class,'home'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');

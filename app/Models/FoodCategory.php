@@ -8,6 +8,7 @@ class FoodCategory extends Model
 {
     //
     protected $fillable=[
-        'name'
+        'name',
+        'image'
     ];
 }

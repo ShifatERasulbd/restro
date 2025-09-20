@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Sliders;
+use App\Models\FoodCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     //
     public function home(){
-        return view('frontend.home');
+         $slider=Sliders::OrderBy('id','DESC')->get();
+         $foodCategory=FoodCategory::OrderBy('id','DESC')->get();
+        return view('frontend.home',compact('slider','foodCategory'));
     }
 }

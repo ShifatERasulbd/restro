@@ -28,21 +28,19 @@
                                     <td><img src="{{asset($slider->image)}}" height="60" width="60"></td>
                                     <td>{{$slider->title}}</td>
                                     <td>{{$slider->subTitle}}</td>
-                                    <td> 
-                                          <a href="{{ route('sliders.edit',$slider->id) }}" class="btn btn-sm btn-warning">
+                                  
+                                      <td>
+                                            <a href="{{ route('sliders.edit',$slider->id) }}" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i>
                                             </a>
-
-                                              <!-- Delete Icon -->
-                                        <form action="{{ route('sliders.delete',$slider->id)}}" method="POST" 
-                                            onsubmit="return confirm('Are you sure you want to delete this Slider?');">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn btn-sm btn-danger">
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </form>
-                                    </td>
+                                            <form action="{{ route('sliders.delete',$slider->id)}}" method="POST" style="display:inline-block;" onsubmit="return confirm('Are you sure you want to delete this review?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-trash"></i>
+                                                </button>
+                                            </form>
+                                        </td>
                                 </tr>
                             @endforeach
                             </tfoot>
