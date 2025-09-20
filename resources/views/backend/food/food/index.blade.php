@@ -30,7 +30,7 @@
                                     <td>{{ $food->name }}</td>
                                     <td><img src="{{ asset($food->image) }}" alt="" width="60px"></td>
                                     <td>{{ $food->price }}</td>
-                                    <td></td>
+                                    <td>{{ $food->category->name }}</td>
                                    
                                     <td>
                                     <a href="{{ route('food.edit',$food->id) }}" class="btn btn-sm btn-warning"> <i class="fas fa-edit"></i></a>

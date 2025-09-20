@@ -2,77 +2,76 @@
 @section('main')
 <section class="section">
     <div class="section-body">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4>Add Foods</h4>
-            </div>
 
+    <div class="row">
+          <div class="col-12 col-md-12 col-lg-12">
             <form action="{{ route('food.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              <div class="card-body">
-
-                <!-- Product Name -->
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Name</label>
-                  <div class="col-sm-12 col-md-7">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Add Food Items</h4>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Food Name</label>
                       <input type="text" name="name" class="form-control">
-                  </div>
-                </div>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Food Price</label>
+                      <input type="number" name="price" class="form-control">
+                    </div>
 
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Price</label>
-                  <div class="col-sm-12 col-md-7">
-                      <input type="text" name="price" class="form-control">
-                  </div>
-                </div>
+                    <div class="form-group col-md-3">
+                      <label>Food Offer Price</label>
+                      <input type="number" name="offerPrice" class="form-control">
+                    </div>
 
-               <!-- Ingredients -->
-               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Ingredients</label>
-                <div class="col-sm-12 col-md-7">
-                  <input type="text" id="ingredientInput" class="form-control" placeholder="Type and press comma (,)">
-                  <div id="ingredientList" class="mt-2"></div>
-                  <!-- Hidden input to store ingredients array -->
-                  <input type="hidden" name="ingredients" id="ingredientsHidden">
-                </div>
-              </div>
+                    <div class="form-group col-md-12">
+                      <label>Food Ingredients</label>
+                      <input type="text" name="ingredients" class="form-control">
+                    </div>
 
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Packing Price</label>
-                  <div class="col-sm-12 col-md-7">
-                      <input type="text" name="packagingPrice" class="form-control">
-                  </div>
-                </div>
-
-             
-
-                <!-- Single File Upload -->
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Image</label>
-                  <div class="col-sm-12 col-md-7">
+                    <div class="form-group col-md-6">
+                      <label>Food Image</label>
                       <input type="file" name="FoodImage" class="form-control" id="singleImageInput">
-                      <!-- Single Image preview -->
-                      <div id="singlePreviewContainer" style="margin-top:10px;">
-                        <img id="singlePreviewImage" src="" alt="Image Preview" style="max-width: 200px; display: none; border:1px solid #ddd; padding:5px; border-radius:5px;">
-                      </div>
-                  </div>
-                </div>
+                        <!-- Single Image preview -->
+                        <div id="singlePreviewContainer" style="margin-top:10px;">
+                          <img id="singlePreviewImage" src="" alt="Image Preview" style="max-width: 200px; display: none; border:1px solid #ddd; padding:5px; border-radius:5px;">
+                        </div>
+                    </div>
 
-                <!-- Submit -->
-                <div class="form-group row mb-4">
+                 <div class="form-group col-md-6">
+                      <label>Select Category</label>
+                        <select class="form-control" name="categoryId">
+                          @foreach($foodCategory as $foodCategory)
+                          <option value="{{ $foodCategory->id }}">{{ $foodCategory->name }}</option>
+                          @endforeach
+                         
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <input type="checkbox"  name="featuredItems">
+                        <label>Featured Items</label>
+                    </div>
+
+                     
+
+                    <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                   <div class="col-sm-12 col-md-7">
                       <button type="submit" class="btn btn-primary">Publish</button>
                   </div>
                 </div>
 
+                  </div>
+                </div>
               </div>
             </form>
           </div>
         </div>
-      </div>
+     
     </div>
 </section>
 

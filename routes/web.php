@@ -82,7 +82,7 @@ Route::get('admin/food/create',[FoodController::class,'create'])->middleware(['a
 Route::Post('admin/food/store',[FoodController::class,'store'])->middleware(['auth','verified'])->name('food.store');
 Route::get('admin/food/edit/{id}',[FoodController::class,'edit'])->middleware(['auth','verified'])->name('food.edit');
 Route::put('admin/food/update',[FoodController::class,'update'])->middleware(['auth','verified'])->name('food.update');
-Route::delete('admin/food/delete',[FoodController::class,'destroy'])->middleware(['auth','verified'])->name('food.delete');
+Route::delete('admin/food/delete/{id}',[FoodController::class,'destroy'])->middleware(['auth','verified'])->name('food.delete');
 
 // sauces Controller
 Route::get('admin/sauces',[SaucesController::class,'index'])->middleware(['auth','verified'])->name('sauces');

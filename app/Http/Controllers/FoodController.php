@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\FoodCategory;
 use App\Models\Food;
 use Illuminate\Http\Request;
 
@@ -23,43 +23,53 @@ class FoodController extends Controller
     public function create()
     {
         //
-         return view('backend.food.food.create');
+        
+        $foodCategory=FoodCategory::all();
+        return view('backend.food.food.create',compact('foodCategory'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        //
-        $validated=$request->validate([
-            'name'=>'required|string',
-            'ingredients'=>'nullable|string',
-            'price'=>'nullable|string',
-            'packagingPrice'=>'nullable|string',
-        ]);
+{
+    // dd($request->all());
+    $validated = $request->validate([
+        'name'           => 'required|string|max:255',
+         'price'          => 'nullable|numeric',
+         'offerPrice'     => 'nullable|numeric',
+        'ingredients'    => 'nullable|string',
+        'categoryId'    => 'nullable|string',
+        'featuredItems'  => 'nullable|string',       
+        'FoodImage'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
+   
+    
+    // Handle image upload
+    if ($request->hasFile('FoodImage')) {
+        $image      = $request->file('FoodImage');
+        $imageName  = time() . '_' . $image->getClientOriginalName();
+        $image->move(public_path('Foods'), $imageName);
 
-        if($request-> hasFile('FoodImage')){
-            $image=$request->file('FoodImage');
-            $imageName=time().'_'.$image->getClientOriginalName();
-            $image->move(public_path('Foods'), $imageName);
-
-            $validated['image']='Foods/'.$imageName;
-        } else {
-            $validated['image'] = null;
-        }
-         $data=[
-            'name'=>$validated['name'],
-            'ingredients'=>$validated['ingredients'],
-            'price'=>$validated['price'],
-            'image'=>$validated['image'],
-            'packagingPrice'=>$validated['packagingPrice'],
-        ];
-
-        Food::create($data);
-
-        return redirect()->route('food');
+        $validated['image'] = 'Foods/' . $imageName;
+    } else {
+        $validated['image'] = null;
     }
+
+    // Create food item
+    Food::create([
+        'name'           => $validated['name'],
+        'price'          => $validated['price'] ?? null,   
+        'offerPrice'     => $validated['offerPrice'] ?? null,
+        'ingredients'    => $validated['ingredients'] ?? null,
+        'categoryId'    => $validated['categoryId'] ?? null,
+        'image'          => $validated['image'],
+        'featuredItems'  => $validated['featuredItems'] ?? null,
+        
+    ]);
+
+    return redirect()->route('food')->with('success', 'Food item created successfully!');
+}
 
     /**
      * Display the specified resource.
@@ -118,8 +128,10 @@ class FoodController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Food $food)
+    public function destroy(Food $food,$id)
     {
-        //
+        $food=Food::find($id);
+        $food->delete();
+        return redirect()->route('food');
     }
 }
