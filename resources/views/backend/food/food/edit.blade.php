@@ -1,59 +1,41 @@
+
 @extends('backend.master')
 @section('main')
 <section class="section">
     <div class="section-body">
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h4>Edit Foods</h4>
-            </div>
 
+    <div class="row">
+          <div class="col-12 col-md-12 col-lg-12">
             <form action="{{ route('food.update') }}" method="POST" enctype="multipart/form-data">
-              @csrf
+             @csrf
               @method('PUT')
               <input type="hidden" name="id" value="{{ $food->id }}">
-              <div class="card-body">
-
-                <!-- Product Name -->
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Name</label>
-                  <div class="col-sm-12 col-md-7">
-                      <input type="text" name="name" value="{{ $food->name }}" class="form-control">
-                  </div>
+              <div class="card">
+                <div class="card-header">
+                  <h4>Edit Food Items</h4>
                 </div>
-
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Price</label>
-                  <div class="col-sm-12 col-md-7">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label>Food Name</label>
+                       <input type="text" name="name" value="{{ $food->name }}" class="form-control">
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label>Food Price</label>
                       <input type="text" name="price" value="{{ $food->price }}" class="form-control">
-                  </div>
-                </div>
+                    </div>
 
-               <!-- Ingredients -->
-               <div class="form-group row mb-4">
-                <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Ingredients</label>
-                <div class="col-sm-12 col-md-7">
-                  <input type="text" id="ingredientInput" class="form-control" placeholder="Type and press comma (,)">
-                  
-                  <!-- Ingredients List -->
-                   
-                  <div id="ingredientList" class="mt-2"></div>
-                  <!-- Hidden input to store ingredients array -->
-                  <input type="hidden" name="ingredients" id="ingredientsHidden">
-                </div>
-              </div>
+                    <div class="form-group col-md-3">
+                      <label>Food Offer Price</label>
+                      <input type="text" name="offerPrice" value="{{ $food->offerPrice }}" class="form-control">
+                    </div>
 
-                <div class="form-group row mb-4">
-                  <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Packing Price</label>
-                  <div class="col-sm-12 col-md-7">
-                      <input type="text" name="packagingPrice" value="{{ $food->packagingPrice }}" class="form-control">
-                  </div>
-                </div>
+                    <div class="form-group col-md-12">
+                      <label>Food Ingredients</label>
+                      <input type="text" name="ingredients" value="{{ $food->ingredients }}" class="form-control">
+                    </div>
 
-             
-
-                <!-- Single File Upload -->
+                      <!-- Single File Upload -->
                 <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Food Image</label>
                   <div class="col-sm-12 col-md-7">
@@ -69,73 +51,43 @@
                   </div>
                 </div>
 
-                <!-- Submit -->
-                <div class="form-group row mb-4">
+                 <div class="form-group col-md-6">
+                      <label>Select Category</label>
+                        <select class="form-control" name="categoryId">
+                          <option value="{{ $food->categoryId }}">{{ $food->category->name }}</option>  
+                          @foreach($foodCategory as $foodCategory)
+                          <option value="{{ $foodCategory->id }}">{{ $foodCategory->name }}</option>
+                          @endforeach
+                         
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <input type="checkbox"  name="featuredItems" value="on" {{ $food->featuredItems == 'on' ? 'checked' : '' }}>
+                        <label>Featured Items</label>
+                    </div>
+
+                     
+
+                    <div class="form-group row mb-4">
                   <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                   <div class="col-sm-12 col-md-7">
                       <button type="submit" class="btn btn-primary">Publish</button>
                   </div>
                 </div>
 
+                  </div>
+                </div>
               </div>
             </form>
           </div>
         </div>
-      </div>
+     
     </div>
 </section>
 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<!-- Ingredients Script -->
-<script>
-$(document).ready(function(){
-  let ingredients = [];
-
-  // Initialize ingredients from server data
-  let existingIngredients = @json(explode(',', $food->ingredients));
-  ingredients = existingIngredients.filter(i => i.trim() !== "");
-
-  // Render existing ingredients as badges with delete button
-  ingredients.forEach(function(ingredient, index){
-    $("#ingredientList").append(
-      `<span class="badge badge-primary mr-1 mb-1" data-index="${index}">${ingredient} <span class="badge-delete" style="cursor:pointer; margin-left:5px;">&times;</span></span>`
-    );
-  });
-
-  // Set hidden input value
-  $("#ingredientsHidden").val(ingredients.join(","));
-
-  $("#ingredientInput").on("keyup", function(e){
-    let inputVal = $(this).val();
-    if(inputVal.includes(",")){
-      let newIngredients = inputVal.split(",").map(i => i.trim()).filter(i => i !== "");
-      newIngredients.forEach(function(ingredient){
-        if(ingredient && !ingredients.includes(ingredient)){
-          ingredients.push(ingredient);
-          $("#ingredientList").append(
-            `<span class="badge badge-primary mr-1 mb-1">${ingredient} <span class="badge-delete" style="cursor:pointer; margin-left:5px;">&times;</span></span>`
-          );
-        }
-      });
-      $("#ingredientsHidden").val(ingredients.join(",")); // update hidden field
-      $(this).val(""); // clear input
-    }
-  });
-
-  // Handle ingredient deletion
-  $(document).on("click", ".badge-delete", function(){
-    let badge = $(this).parent();
-    let index = ingredients.indexOf(badge.text().trim().replace(' ×', ''));
-    if(index > -1){
-      ingredients.splice(index, 1);
-      badge.remove();
-      $("#ingredientsHidden").val(ingredients.join(","));
-    }
-  });
-});
-</script>
 
 <!-- Single Image Preview Script -->
 <script>

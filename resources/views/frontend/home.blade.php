@@ -70,60 +70,6 @@
           </div>
         </article>
       @endforeach
-
-      {{-- Example static items --}}
-      <article class="card">
-        <div class="card__img">
-          <img src="https://i.postimg.cc/4dBHXR1Z/image.png" alt="">
-        </div>
-        <div class="card__name">
-          <p>AIR ZOOM PEGASUS</p>
-        </div>
-        <div class="card__precis">
-          <a href="#" class="card__icon"><ion-icon name="heart-outline"></ion-icon></a>
-          <div>
-            <span class="card__preci card__preci--before">$990.00</span>
-            <span class="card__preci card__preci--now">$749.00</span>
-          </div>
-          <a href="#" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card__img">
-          <img src="https://i.postimg.cc/4dBHXR1Z/image.png" alt="">
-        </div>
-        <div class="card__name">
-          <p>AIR ZOOM PEGASUS</p>
-        </div>
-        <div class="card__precis">
-          <a href="#" class="card__icon"><ion-icon name="heart-outline"></ion-icon></a>
-          <div>
-            <span class="card__preci card__preci--before">$990.00</span>
-            <span class="card__preci card__preci--now">$749.00</span>
-          </div>
-          <a href="#" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>
-        </div>
-      </article>
-
-      <article class="card">
-        <div class="card__img">
-          <img src="https://i.postimg.cc/4dBHXR1Z/image.png" alt="">
-        </div>
-        <div class="card__name">
-          <p>AIR ZOOM PEGASUS</p>
-        </div>
-        <div class="card__precis">
-          <a href="#" class="card__icon"><ion-icon name="heart-outline"></ion-icon></a>
-          <div>
-            <span class="card__preci card__preci--before">$990.00</span>
-            <span class="card__preci card__preci--now">$749.00</span>
-          </div>
-          <a href="#" class="card__icon"><ion-icon name="cart-outline"></ion-icon></a>
-        </div>
-      </article>
-
-      
     </div>
   </section>
 </div>

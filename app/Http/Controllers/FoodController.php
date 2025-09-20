@@ -85,8 +85,9 @@ class FoodController extends Controller
     public function edit(Food $food,$id)
     {
         //
+        $foodCategory=FoodCategory::all();
         $food=Food::find($id);
-        return view('backend.food.food.edit',compact('food'));
+        return view('backend.food.food.edit',compact('food','foodCategory'));
     }
 
     /**
@@ -97,12 +98,15 @@ class FoodController extends Controller
         //
         $id=$request->id;
         $food=Food::find($id);
-        $validated=$request->validate([
-            'name'=>'required|string',
-            'ingredients'=>'nullable|string',
-            'price'=>'nullable|string',
-            'packagingPrice'=>'nullable|string',
-        ]);
+       $validated = $request->validate([
+        'name'           => 'required|string|max:255',
+         'price'          => 'nullable|numeric',
+         'offerPrice'     => 'nullable|numeric',
+        'ingredients'    => 'nullable|string',
+        'categoryId'    => 'nullable|string',
+        'featuredItems'  => 'nullable|string',       
+        'FoodImage'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
+    ]);
         if($request-> hasFile('FoodImage')){
             $image=$request->file('FoodImage');
             $imageName=time().'_'.$image->getClientOriginalName();
@@ -116,8 +120,11 @@ class FoodController extends Controller
             'name'=>$validated['name'],
             'ingredients'=>$validated['ingredients'],
             'price'=>$validated['price'],
+            'offerPrice'=>$validated['offerPrice'],
             'image'=>$validated['image'],
-            'packagingPrice'=>$validated['packagingPrice'],
+            'categoryId'=>$validated['categoryId'],
+            'featuredItems'=>$validated['featuredItems'],
+           
         ];
 
         $food->update($data);
