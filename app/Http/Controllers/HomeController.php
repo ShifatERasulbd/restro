@@ -16,4 +16,13 @@ class HomeController extends Controller
          $popularFood=Food::OrderBy('id','DESC')->get();
         return view('frontend.home',compact('slider','foodCategory','FeaturedFood','popularFood'));
     }
+
+    public function categoryItems($id){
+        $categories = FoodCategory::with('foods')->get() ?? collect([]);
+        $activeCategoryId = request()->query('category');
+        if (!$activeCategoryId && $categories->count() > 0) {
+            $activeCategoryId = $categories->first()->id;
+        }
+        return view('frontend.categoryItems', compact('categories', 'activeCategoryId'));
+    }
 }
