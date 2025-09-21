@@ -23,7 +23,13 @@
       <li class="menu-item"><a href="#about">About</a></li>
       <li class="menu-item"><a href="#projects">Projects</a></li>
       <li class="menu-item"><a href="#blog">Blog</a></li>
-      <li class="menu-item"><a class="add-to-cart-btn">Cart</a></li>
+      <li class="menu-item">
+        <a class="menu-cart-btn" style="position:relative;display:flex;align-items:center;cursor:pointer;">
+          <i class="fa fa-shopping-cart" style="font-size:20px;margin-right:5px;"></i>
+          <span>Cart</span>
+          <span id="cart-count-badge" style="background:#C2F0C2;color:#333;border-radius:50%;padding:2px 8px;font-size:14px;position:absolute;top:-8px;right:-18px;min-width:24px;text-align:center;">0</span>
+        </a>
+      </li>
      
     </ul>
   </nav>

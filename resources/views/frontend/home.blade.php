@@ -66,7 +66,15 @@
                 <span class="card__preci card__preci--now">${{ $food->price }}</span>
               </div>
             @endif
-            <a class="card__icon add-to-cart-btn"><ion-icon name="cart-outline"></ion-icon></a>
+            <a 
+              class="card__icon add-to-cart-btn"
+              data-id="{{ $food->id }}"
+              data-name="{{ $food->name }}"
+              data-price="{{ $food->offerPrice ?? $food->price }}"
+              data-image="{{ asset($food->image) }}"
+            >
+              <ion-icon name="cart-outline"></ion-icon>
+            </a>
           </div>
         </article>
       @endforeach
@@ -119,7 +127,13 @@
             <h5 class="card-title">{{$food->name}}</h5>
             <p class="card-text">{{$food->ingredients}}</p>
           </div>
-          <button class="add-to-cart-btn" data-id="{{ $food->id }}">
+          <button 
+            class="add-to-cart-btn"
+            data-id="{{ $food->id }}"
+            data-name="{{ $food->name }}"
+            data-price="{{ $food->offerPrice ?? $food->price }}"
+            data-image="{{ asset($food->image) }}"
+          >
             <i class="fa-solid fa-cart-plus"></i> Add
           </button>
         </div>
