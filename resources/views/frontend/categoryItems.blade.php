@@ -1,14 +1,20 @@
 @extends('frontend.master')
 @section('content')
-
-<div class="container-width" style="margin-top:100px;">
+<link rel="stylesheet" href="{{ asset('frontend/css/categoryItems.css') }}">
+<div class="container-width" style="margin-top:30px;">
+  <!-- Featured Items Title -->
+  <div class="row">
+    <div class="col-12">
+      <h1 class="title-shop" style="margin-bottom:24px; margin-top:0; text-align:left;">Featured Items</h1>
+    </div>
+  </div>
   <!-- Category Cards as Tabs -->
   <div class="row mb-4" id="categoryCardTab" role="tablist">
     @foreach($categories as $category)
       <div class="col-auto">
         <button class="category-card-tab card p-2 @if(isset($activeCategoryId) && $activeCategoryId == $category->id) active-card @endif" id="tab-{{ $category->id }}" data-bs-toggle="tab" data-bs-target="#cat-{{ $category->id }}" type="button" role="tab" aria-controls="cat-{{ $category->id }}" aria-selected="{{ (isset($activeCategoryId) && $activeCategoryId == $category->id) ? 'true' : 'false' }}" style="min-width:120px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:@if(isset($activeCategoryId) && $activeCategoryId == $category->id)2px solid #C2F0C2;@else 1px solid #eee;@endif">
           <div class="card-body text-center p-2">
-            <img src="{{ asset($category->image ?? 'frontend/images/subscribe.png') }}" alt="{{ $category->name }}" style="width:40px;height:40px;object-fit:cover;border-radius:8px;">
+            <img src="{{ asset($category->image ?? 'frontend/images/subscribe.png') }}" alt="{{ $category->name }}" style="width:56px;height:56px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
             <div class="mt-2 fw-bold">{{ $category->name }}</div>
           </div>
         </button>
@@ -23,7 +29,7 @@
           @forelse(($category->foods ?? []) as $food)
             <div class="col-md-3 mb-3">
               <div class="card h-100">
-                <img src="{{ asset($food->image) }}" class="card-img-top" alt="{{ $food->name }}">
+                <img src="{{ asset($food->image) }}" class="card-img-top featured-img" alt="{{ $food->name }}">
                 <div class="card-body">
                   <h5 class="card-title">{{ $food->name }}</h5>
                   <p class="card-text">{{ $food->ingredients }}</p>
@@ -42,5 +48,15 @@
     @endforeach
   </div>
 </div>
-
+<script src="{{ asset('frontend/js/categoryItems.js') }}"></script>
+<style>
+.featured-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin-bottom: 8px;
+}
+</style>
 @endsection
