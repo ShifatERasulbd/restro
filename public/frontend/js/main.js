@@ -20,20 +20,33 @@ $(document).ready(function() {
   let items = document.querySelectorAll('.slide .item');
 
   const nextSlide = () => {
-    slideContainer.appendChild(items[0]);
-    items = document.querySelectorAll('.slide .item');
+    if (slideContainer && items.length > 0) {
+      slideContainer.appendChild(items[0]);
+      items = document.querySelectorAll('.slide .item');
+    }
   };
 
   const prevSlide = () => {
-    slideContainer.prepend(items[items.length - 1]);
-    items = document.querySelectorAll('.slide .item');
+    if (slideContainer && items.length > 0) {
+      slideContainer.prepend(items[items.length - 1]);
+      items = document.querySelectorAll('.slide .item');
+    }
   };
 
-  document.querySelector('.next').addEventListener('click', nextSlide);
-  document.querySelector('.prev').addEventListener('click', prevSlide);
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  if (nextBtn) {
+    nextBtn.addEventListener('click', nextSlide);
+  }
+  if (prevBtn) {
+    prevBtn.addEventListener('click', prevSlide);
+  }
 
   // Auto-slide for main slider
-  let autoSlide = setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+  let autoSlide = null;
+  if (slideContainer && items.length > 0) {
+    autoSlide = setInterval(nextSlide, 3000); // Auto slide every 3 seconds
+  }
 
 
   // Nav toggle

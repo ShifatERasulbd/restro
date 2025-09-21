@@ -23,6 +23,8 @@
       <li class="menu-item"><a href="#about">About</a></li>
       <li class="menu-item"><a href="#projects">Projects</a></li>
       <li class="menu-item"><a href="#blog">Blog</a></li>
+      <li class="menu-item"><a class="add-to-cart-btn">Cart</a></li>
+     
     </ul>
   </nav>
 </header>
