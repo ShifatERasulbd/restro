@@ -17,12 +17,10 @@ class HomeController extends Controller
         return view('frontend.home',compact('slider','foodCategory','FeaturedFood','popularFood'));
     }
 
-    public function categoryItems($id){
+    public function categoryItems($slug){
         $categories = FoodCategory::with('foods')->get() ?? collect([]);
-        $activeCategoryId = request()->query('category');
-        if (!$activeCategoryId && $categories->count() > 0) {
-            $activeCategoryId = $categories->first()->id;
-        }
+        $activeCategory = FoodCategory::where('slug', $slug)->first();
+        $activeCategoryId = $activeCategory ? $activeCategory->id : ($categories->count() > 0 ? $categories->first()->id : null);
         return view('frontend.categoryItems', compact('categories', 'activeCategoryId'));
     }
 }

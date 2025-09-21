@@ -8,18 +8,18 @@
       <h1 class="title-shop" style="margin-bottom:24px; margin-top:0; text-align:left;">Featured Items</h1>
     </div>
   </div>
-  <!-- Category Cards as Tabs -->
-  <div class="row mb-4" id="categoryCardTab" role="tablist">
-    @foreach($categories as $category)
-      <div class="col-auto">
+  <!-- Category Cards as Tabs (Mobile Friendly Scroll) -->
+  <div class="category-tab-scroll mb-4" id="categoryCardTab" role="tablist">
+    <div class="d-flex flex-row flex-nowrap overflow-auto" style="gap:12px;">
+      @foreach($categories as $category)
         <button class="category-card-tab card p-2 @if(isset($activeCategoryId) && $activeCategoryId == $category->id) active-card @endif" id="tab-{{ $category->id }}" data-bs-toggle="tab" data-bs-target="#cat-{{ $category->id }}" type="button" role="tab" aria-controls="cat-{{ $category->id }}" aria-selected="{{ (isset($activeCategoryId) && $activeCategoryId == $category->id) ? 'true' : 'false' }}" style="min-width:120px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.05);border:@if(isset($activeCategoryId) && $activeCategoryId == $category->id)2px solid #C2F0C2;@else 1px solid #eee;@endif">
           <div class="card-body text-center p-2">
             <img src="{{ asset($category->image ?? 'frontend/images/subscribe.png') }}" alt="{{ $category->name }}" style="width:56px;height:56px;object-fit:cover;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
             <div class="mt-2 fw-bold">{{ $category->name }}</div>
           </div>
         </button>
-      </div>
-    @endforeach
+      @endforeach
+    </div>
   </div>
   <!-- Tab Content -->
   <div class="tab-content" id="categoryTabContent" style="margin-top:20px;">
@@ -50,6 +50,36 @@
 </div>
 <script src="{{ asset('frontend/js/categoryItems.js') }}"></script>
 <style>
+.category-tab-scroll {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.category-tab-scroll .d-flex {
+  scrollbar-width: thin;
+  scrollbar-color: #C2F0C2 #eee;
+}
+.category-tab-scroll .d-flex::-webkit-scrollbar {
+  height: 6px;
+}
+.category-tab-scroll .d-flex::-webkit-scrollbar-thumb {
+  background: #C2F0C2;
+  border-radius: 3px;
+}
+.category-tab-scroll .d-flex::-webkit-scrollbar-track {
+  background: #eee;
+}
+@media (max-width: 768px) {
+  .category-card-tab {
+    min-width: 100px !important;
+    font-size: 0.95rem;
+    padding: 6px 4px;
+  }
+  .category-card-tab .card-body img {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
 .featured-img {
   width: 100%;
   height: 180px;

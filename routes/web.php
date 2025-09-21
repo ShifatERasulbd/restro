@@ -16,7 +16,7 @@ use App\Http\Controllers\SaucesController;
 // });
 
 Route::get('/',[HomeController::class,'home'])->name('home');
-Route::get('/categoryItems/{id}',[HomeController::class,'categoryItems'])->name('categoryItems');
+Route::get('/categoryItems/{sllug}',[HomeController::class,'categoryItems'])->name('categoryItems');
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
