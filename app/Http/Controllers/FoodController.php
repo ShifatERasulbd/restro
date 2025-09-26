@@ -72,11 +72,12 @@ class FoodController extends Controller
 }
 
     /**
-     * Display the specified resource.
+     * Display the specified resource (frontend food details).
      */
-    public function show(Food $food)
+    public function show($slug)
     {
-        //
+        $food = Food::with('category')->where('slug', $slug)->firstOrFail();
+        return view('frontend.foodItemDetailsPage', compact('food'));
     }
 
     /**

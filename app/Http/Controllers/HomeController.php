@@ -23,4 +23,10 @@ class HomeController extends Controller
         $activeCategoryId = $activeCategory ? $activeCategory->id : ($categories->count() > 0 ? $categories->first()->id : null);
         return view('frontend.categoryItems', compact('categories', 'activeCategoryId'));
     }
+
+    public function foodDetails($slug){
+        $food = Food::where('slug', $slug)->firstOrFail();
+         $popularFood=Food::OrderBy('id','DESC')->get();
+        return view('frontend.foodItemDetailsPage', compact('food','popularFood'));
+    }
 }

@@ -9,13 +9,16 @@
 
     <div class="main bd-grid">
       @foreach($FeaturedFood as $food)
+     
         <article class="card">
+           <a href="{{route('food.details', $food->slug)}}">
           <div class="card__img">
             <img src="{{ asset($food->image) }}" alt="{{ $food->name }}">
           </div>
           <div class="card__name">
             <p>{{ $food->name }}</p>
           </div>
+            </a>
           <div class="card__precis">
             <a href="#" class="card__icon"><ion-icon name="heart-outline"></ion-icon></a>
             @if($food->offerPrice)
@@ -39,6 +42,7 @@
             </a>
           </div>
         </article>
+    
       @endforeach
     </div>
   </section>

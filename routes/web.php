@@ -1,3 +1,4 @@
+
 <?php
 
 use App\Http\Controllers\ProfileController;
@@ -17,7 +18,7 @@ use App\Http\Controllers\SaucesController;
 
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/categoryItems/{sllug}',[HomeController::class,'categoryItems'])->name('categoryItems');
-
+Route::get('/food/{slug}',[HomeController::class,'foodDetails'])->name('food.details');
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

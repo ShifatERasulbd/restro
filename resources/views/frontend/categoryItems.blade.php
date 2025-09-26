@@ -3,11 +3,7 @@
 <link rel="stylesheet" href="{{ asset('frontend/css/categoryItems.css') }}">
 <div class="container-width" style="margin-top:30px;">
   <!-- Featured Items Title -->
-  <div class="row">
-    <div class="col-12">
-      <h1 class="title-shop" style="margin-bottom:24px; margin-top:0; text-align:left;">Featured Items</h1>
-    </div>
-  </div>
+
   <!-- Category Cards as Tabs (Mobile Friendly Scroll) -->
   <div class="category-tab-scroll mb-4" id="categoryCardTab" role="tablist">
     <div class="d-flex flex-row flex-nowrap overflow-auto" style="gap:12px;">
