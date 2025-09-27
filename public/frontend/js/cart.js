@@ -112,14 +112,16 @@
         const name = addBtn.getAttribute('data-name');
         const price = addBtn.getAttribute('data-price');
         const image = addBtn.getAttribute('data-image');
+        const qtyInput = document.getElementById('quantity');
+        const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
         if (id && name && price && image) {
           let cart = getCart();
           // Check if item already in cart
           const existing = cart.find(item => item.id === id);
           if (existing) {
-            existing.qty += 1;
+            existing.qty += qty;
           } else {
-            cart.push({ id, name, price, image, qty: 1 });
+            cart.push({ id, name, price, image, qty: qty });
           }
           saveCart(cart);
           renderCart();

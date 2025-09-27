@@ -3,7 +3,7 @@
 <div class="container-width" style="margin-top:100px;">
   <div class="row justify-content-center">
     <div class="col-md-12">
-      <div class="card p-4">
+      <div class="p-4">
         <div class="row">
           <div class="col-md-5">
             <img src="{{ asset($food->image) }}" alt="{{ $food->name }}" class="img-fluid rounded shadow" style="width:100%;height:400px;object-fit:cover;">
@@ -13,11 +13,16 @@
             <p class="mb-2"><strong>Ingredients:</strong> {{ $food->ingredients }}</p>
             <p class="mb-2"><strong>Category:</strong> {{ $food->category->name ?? '-' }}</p>
             <p class="mb-2"><strong>Price:</strong> <span class="text-success">${{ $food->offerPrice ?? $food->price }}</span></p>
-            <div class="mt-3 d-flex gap-2">
-                 
+            <div class="mt-3 d-flex gap-2 align-items-center">
+                 <div class="quantity-selector d-flex align-items-center">
+                   <button class="btn btn-outline-secondary qty-btn" type="button" onclick="changeQuantity(-1)">-</button>
+                   <input type="number" class="form-control text-center" id="quantity" value="1" min="1" style="width: 60px; margin: 0 5px;">
+                   <button class="btn btn-outline-secondary qty-btn" type="button" onclick="changeQuantity(1)">+</button>
+                 </div>
+                 <div class="cart-btn-position">
                    <button
-                    class="add-to-cart-btn btn btn-success px-4 py-2"
-                    style="min-width:180px; font-size:16px; background-color:#A80A49; border-color:#FFFF00; color:#222;"
+                    class="add-to-cart-btn btn btn-success px-4"
+                    style="min-width:180px; font-size:16px; background-color:#C2F0C2; border-color:#FFFF00; color:#222; height: 38px; align-self: center;"
                     data-id="{{ $food->id }}"
                     data-name="{{ $food->name }}"
                     data-price="{{ $food->offerPrice ?? $food->price }}"
@@ -25,6 +30,7 @@
                   >
                     <i class="fa-solid fa-cart-plus"></i> Add
                   </button>
+                  </div>
                
             </div>
           </div>
@@ -37,7 +43,7 @@
         <button class="view-all-btn">View All</button>
       </div>
 
-      <div class="col-md-12 mt-5">
+      <div class="col-md-12" style="margin-top: 28px;">
         <div class="row">
           @foreach($popularFood as $food)
             <div class="col-md-4 mb-3">
@@ -65,3 +71,15 @@
   </div>
 </div>
 @endsection
+
+<script>
+  function changeQuantity(delta) {
+    const qtyInput = document.getElementById('quantity');
+
+    let currentQty = parseInt(qtyInput.value);
+    
+    currentQty += delta;
+    if (currentQty < 1) currentQty = 1;
+    qtyInput.value = currentQty;
+  }
+</script>

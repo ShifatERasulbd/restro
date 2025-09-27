@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: space-between; /* pushes title left, button right */
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .view-all-btn {
@@ -579,4 +579,9 @@ li a {
     width: 280px;
     right: -280px;
   }
+}
+
+.cart-btn-position{
+    padding-left: 25px;
+    padding-top: 17px;
 }
