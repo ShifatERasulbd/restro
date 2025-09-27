@@ -410,7 +410,7 @@ footer{
 }
 
 /*-- MEDIA QUERIES --*/
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1400px){
     body{
         margin: 3rem 0 0 0;
     }
@@ -584,4 +584,92 @@ li a {
 .cart-btn-position{
     padding-left: 25px;
     padding-top: 17px;
+}
+
+/* Checkout Form Styles */
+.checkout-form-card {
+    border: 1px solid #e9ecef;
+    transition: box-shadow 0.3s ease;
+}
+
+.checkout-form-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+}
+
+.checkout-input {
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    padding: 12px 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.checkout-input:focus {
+    border-color: #ff6600;
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
+    outline: none;
+}
+
+.checkout-submit-btn {
+    background: linear-gradient(45deg, #ff6600, #ff8533);
+    border: none;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.checkout-submit-btn:hover {
+    background: linear-gradient(45deg, #e65c00, #ff6600);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.checkout-submit-btn:active {
+    transform: translateY(0);
+}
+
+/* Checkout Cart Controls */
+.qty-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dee2e6;
+    background: #f8f9fa;
+    color: #333;
+    cursor: pointer;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.qty-btn:hover {
+    background: #e9ecef;
+}
+
+.qty-display {
+    display: inline-block;
+    min-width: 30px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 5px;
+}
+
+.delete-btn {
+    background: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+.delete-btn i {
+    font-size: 14px;
 }

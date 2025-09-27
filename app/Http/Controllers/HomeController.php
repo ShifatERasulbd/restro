@@ -29,4 +29,8 @@ class HomeController extends Controller
          $popularFood=Food::OrderBy('id','DESC')->get();
         return view('frontend.foodItemDetailsPage', compact('food','popularFood'));
     }
+
+    public function checkout(){
+        return view('frontend.checkout');
+    }
 }

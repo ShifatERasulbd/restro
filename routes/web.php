@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FoodCategoryController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\SaucesController;
+use App\Http\Controllers\OrderController;
 // Route::get('/', function () {
 //     return view('frontend/home');
 // });
@@ -19,6 +20,8 @@ use App\Http\Controllers\SaucesController;
 Route::get('/',[HomeController::class,'home'])->name('home');
 Route::get('/categoryItems/{sllug}',[HomeController::class,'categoryItems'])->name('categoryItems');
 Route::get('/food/{slug}',[HomeController::class,'foodDetails'])->name('food.details');
+Route::get('/checkout',[HomeController::class,'checkout'])->name('checkout');
+Route::post('/order',[OrderController::class,'store'])->name('order.store');
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

@@ -117,5 +117,6 @@
 <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
 <script src="{{ asset('frontend/js/cart.js') }}"></script>
 <script src="{{ asset('frontend/js/categoryItems.js') }}"></script>
+<script src="{{ asset('frontend/js/checkout.js') }}"></script>
 </body>
 </html>

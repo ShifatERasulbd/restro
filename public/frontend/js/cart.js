@@ -53,11 +53,9 @@
               </td>
               <td style="padding: 12px; text-align: center; vertical-align: middle;">$${item.price}</td>
               <td style="padding: 12px; text-align: center; vertical-align: middle;">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
-                  <button class="cart-qty-btn" data-id="${item.id}" data-action="decrease" style="background:#eee;border:none;font-size:16px;padding:5px 10px;border-radius:4px;">-</button>
-                  <span class="cart-qty-value" style="min-width:30px;display:inline-block;text-align:center;font-weight:bold;">${item.qty}</span>
-                  <button class="cart-qty-btn" data-id="${item.id}" data-action="increase" style="background:#eee;border:none;font-size:16px;padding:5px 10px;border-radius:4px;">+</button>
-                </div>
+                <button class="cart-qty-btn" data-id="${item.id}" data-action="decrease" style="background:#eee;border:none;font-size:16px;padding:5px 10px;margin:0 5px;border-radius:4px;">-</button>
+                <span class="cart-qty-value" style="min-width:30px;display:inline-block;text-align:center;font-weight:bold;">${item.qty}</span>
+                <button class="cart-qty-btn" data-id="${item.id}" data-action="increase" style="background:#eee;border:none;font-size:16px;padding:5px 10px;margin:0 5px;border-radius:4px;">+</button>
               </td>
               <td style="padding: 12px; text-align: center; vertical-align: middle; font-weight: bold;">$${itemTotal.toFixed(2)}</td>
               <td style="padding: 12px; text-align: center; vertical-align: middle;">
@@ -80,6 +78,11 @@
 
     // Add to cart handler
     document.body.addEventListener('click', function(e) {
+    // Checkout button handler
+    if (e.target.classList.contains('checkout-btn')) {
+      window.location.href = '/checkout';
+      return;
+    }
     // Cart drawer close button handler
     if (e.target.classList.contains('close-btn') || e.target.closest('.close-btn')) {
       if (drawer && overlay) {
