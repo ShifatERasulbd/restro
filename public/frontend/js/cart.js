@@ -29,37 +29,53 @@
       if (cart.length === 0) {
         html += '<p>Your items will appear here...</p>';
       } else {
-        html += '<ul style="list-style:none;padding:0;">';
+        html += `
+          <table style="width:100%; border-collapse: collapse; margin-bottom: 20px;">
+            <thead>
+              <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
+                <th style="padding: 12px; text-align: left; font-weight: bold;">Item</th>
+                <th style="padding: 12px; text-align: center; font-weight: bold;">Price</th>
+                <th style="padding: 12px; text-align: center; font-weight: bold;">Quantity</th>
+                <th style="padding: 12px; text-align: center; font-weight: bold;">Subtotal</th>
+                <th style="padding: 12px; text-align: center; font-weight: bold;">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+        `;
         cart.forEach(item => {
           const itemTotal = item.qty * parseFloat(item.price);
           total += itemTotal;
-          html += `<li style="margin-bottom:10px;display:flex;align-items:center;">
-            <img src="${item.image}" alt="${item.name}" style="width:40px;height:40px;margin-right:10px;object-fit:cover;border-radius:5px;">
-            <span style="flex:1;">${item.name}</span>
-            <span>$${item.price} × 
-              <button class="cart-qty-btn" data-id="${item.id}" data-action="decrease" style="background:#eee;border:none;font-size:16px;padding:2px 8px;margin:0 2px;border-radius:4px;">-</button>
-              <span class="cart-qty-value" style="min-width:24px;display:inline-block;text-align:center;">${item.qty}</span>
-              <button class="cart-qty-btn" data-id="${item.id}" data-action="increase" style="background:#eee;border:none;font-size:16px;padding:2px 8px;margin:0 2px;border-radius:4px;">+</button>
-              = $${itemTotal.toFixed(2)}
-            </span>
-            <button class="remove-cart-item" data-id="${item.id}" style="background:none;border:none;color:red;font-size:18px;margin-left:10px;cursor:pointer;" title="Remove"><i class="fa fa-trash"></i></button>
-          </li>`;
+          html += `
+            <tr style="border-bottom: 1px solid #dee2e6;">
+              <td style="padding: 12px; vertical-align: middle;">
+                <img src="${item.image}" alt="${item.name}" style="width:50px;height:50px;object-fit:cover;border-radius:5px;margin-right:10px;">
+                <span>${item.name}</span>
+              </td>
+              <td style="padding: 12px; text-align: center; vertical-align: middle;">$${item.price}</td>
+              <td style="padding: 12px; text-align: center; vertical-align: middle;">
+                <div style="display: flex; align-items: center; justify-content: center; gap: 5px;">
+                  <button class="cart-qty-btn" data-id="${item.id}" data-action="decrease" style="background:#eee;border:none;font-size:16px;padding:5px 10px;border-radius:4px;">-</button>
+                  <span class="cart-qty-value" style="min-width:30px;display:inline-block;text-align:center;font-weight:bold;">${item.qty}</span>
+                  <button class="cart-qty-btn" data-id="${item.id}" data-action="increase" style="background:#eee;border:none;font-size:16px;padding:5px 10px;border-radius:4px;">+</button>
+                </div>
+              </td>
+              <td style="padding: 12px; text-align: center; vertical-align: middle; font-weight: bold;">$${itemTotal.toFixed(2)}</td>
+              <td style="padding: 12px; text-align: center; vertical-align: middle;">
+                <button class="remove-cart-item" data-id="${item.id}" style="background:none;border:none;color:red;font-size:18px;cursor:pointer;" title="Remove"><i class="fa fa-trash"></i></button>
+              </td>
+            </tr>
+          `;
         });
-        html += '</ul>';
+        html += `
+            </tbody>
+          </table>
+        `;
         html += `<div style="width:100%;position:sticky;bottom:0;z-index:2;background:#fff;padding-bottom:10px;">
           <div style="font-weight:bold;font-size:18px;text-align:right;margin-bottom:10px;">Total: $${total.toFixed(2)}</div>
           <button class="checkout-btn" style="width:100%;padding:10px 0;background:#C2F0C2;color:#333;border:none;border-radius:5px;font-size:18px;cursor:pointer;">Checkout</button>
         </div>`;
       }
       drawer.innerHTML = `<button class=\"close-btn\" id=\"closeDrawer\">&times;</button>` + html;
-      // Re-attach close event
-      const closeBtn = document.getElementById('closeDrawer');
-      if (closeBtn && drawer && overlay) {
-        closeBtn.addEventListener('click', () => {
-          drawer.classList.remove('open');
-          overlay.classList.remove('active');
-        });
-      }
     }
 
     // Add to cart handler

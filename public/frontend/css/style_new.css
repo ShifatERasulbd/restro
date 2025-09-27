@@ -506,8 +506,8 @@ li a {
 .drawer {
   position: fixed;
   top: 0;
-  right: -400px; /* Start off-screen */
-  width: 350px;
+  right: -550px; /* Start off-screen */
+  width: 500px;
   height: 100vh;
   background: #fff;
   box-shadow: -2px 0 10px rgba(0,0,0,0.1);
@@ -576,8 +576,8 @@ li a {
 
 @media (max-width: 480px) {
   .drawer {
-    width: 280px;
-    right: -280px;
+    width: 435px;
+    right: -435px;
   }
 }
 
